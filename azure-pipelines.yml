@@ -16,7 +16,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
 - task: CopyFiles@2
-  displayname: 'Copy Files to: $(build.artifactstagingdirectory)'
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
   inputs:
     SourceFolder: '$(system.defaultworkingdirectory)'
     Contents: '**/*.jar'
