@@ -27,3 +27,11 @@ steps:
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
   condition: succeededOrFailed()
+- task: AzureRmWebAppDeployment@4
+  displayName: 'Deploy War to Azure App Service'
+  inputs:
+    azureSubscription: '$(Parameters.ConnectedServiceName)'
+    appType: '$(Parameters.WebAppKind)'
+    WebAppName: '$(Parameters.WebAppName)'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/_mrchipo.maven/drop/server/target/server.jar'
+    StartupCommand: '$(Parameters.StartupCommand)'
